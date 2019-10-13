@@ -1,24 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header from './Pages/Header'
+import Home from './Pages/Home'
+import Food from './Pages/Categories/Food'
+import Travel from './Pages/Categories/Travel'
+import House from './Pages/Categories/House'
+import Result from './Pages/Result'
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+} from 'react-router-dom';
+import { BaseContextProvider } from './ContextApi/BaseContext'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BaseContextProvider>
+        <Router>
+          <Header />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/food" component={Food} />
+            <Route path="/travel" component={Travel} />
+            <Route path="/house" component={House} />
+            <Route path="/result" component={Result} />
+          </Switch>
+        </Router>
+      </BaseContextProvider>
     </div>
   );
 }
