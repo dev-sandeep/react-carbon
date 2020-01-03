@@ -14,7 +14,7 @@ function getValueFromObj(array, val) {
 }
 
 function setEnviournmentNews() {
-    const { setNews } = UseBaseContext();
+    // const { setNews } = UseBaseContext();
     const URL = {
         BASE: 'https://newsapi.org/v2/top-headlines',
         API_KEY: '0dc8ac7f0e564f7a98de3c56a0d9c640',
@@ -25,7 +25,7 @@ function setEnviournmentNews() {
     };
 
     Axios.get(URL.getDefaultUrl()).then((promise) => {
-        setNews(promise.data.articles);
+        // setNews(promise.data.articles);
         console.log(promise.data.articles);
     }, function (e) {
         console.error(e);
